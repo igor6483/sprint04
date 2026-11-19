@@ -22,17 +22,6 @@ app.get("/mensagens",async (req,res)=>{
     }
 })
 
-app.get("/mensagens/:id", async (req, res) => {
-  try {
-    const lista = await lerMensagens();
-    const mensagem = lista.find(m => m.id === Number(req.params.id));
-    if (!mensagem) return res.status(404).json({ erro: "Mensagem não encontrada." });
-    res.json(mensagem);
-  } catch (erro) {
-    console.error(erro)
-    res.status(500).json({erro: "Falha ao consultar mensagens"})}
-})
-
   app.get("/mensagens/:id", async (req, res) => {
   try {
     const lista = await lerMensagens();
